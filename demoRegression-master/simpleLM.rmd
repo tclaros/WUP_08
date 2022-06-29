@@ -48,4 +48,20 @@ predict(chesty,new,se.fit=TRUE)
 ```
   
   
-The adjusted r-square for this model (CHEST) is 0.79; the the model for NECK has an adjusted r-square of 0.75. So far the best model id the one based on CHEST.
+The adjusted r-square for this model (CHEST) is 0.79; the model for NECK has an adjusted r-square of 0.75. So far the best model is the one based on CHEST.
+
+```{r}
+hd <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(hd)
+summary.lm(hd)
+```
+
+```{r}
+new <- data.frame(HEADLEN=c(17,22,26))
+predict(hd,new)
+predict(hd,new,se.fit=TRUE)
+```
+  
+The adjusted r-square for this model (HEADLEN) is 0.84 which is better than all the models; the adjusted r-square for this model (CHEST) is 0.79; the model for NECK has an adjusted r-square of 0.75. So the best model is the one based on HEADLEN.
+ 
