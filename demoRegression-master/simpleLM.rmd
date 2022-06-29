@@ -25,12 +25,24 @@ summary.lm(simp)
 ```
 
 ## now predict the length of a bear who has a neck of 17, 22 and 26
-
-
+  
 ```{r}
 new <- data.frame(NECK=c(17,22,26))
 predict(simp,new)
 predict(simp,new,se.fit=TRUE)
 ```
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
+  
+```{r}
+chesty <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(chesty)
+summary.lm(chesty)
+```
 
+
+```{r}
+new <- data.frame(CHEST=c(17,22,26))
+predict(chesty,new)
+predict(chesty,new,se.fit=TRUE)
+```
