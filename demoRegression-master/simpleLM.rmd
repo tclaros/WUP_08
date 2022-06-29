@@ -46,3 +46,6 @@ new <- data.frame(CHEST=c(17,22,26))
 predict(chesty,new)
 predict(chesty,new,se.fit=TRUE)
 ```
+  
+  
+The adjusted r-square for this model (CHEST) is 0.79; the the model for NECK has an adjusted r-square of 0.75. So far the best model id the one based on CHEST.
